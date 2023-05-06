@@ -13,39 +13,39 @@ FBID - MUIRST
 
 Laura Fernández Galindo & Patricia Ortuño Otero
 
-# Instrucciones
+# Instructions
 
->__Note__ Debe escoger una de las dos opciones de creación de una máquina virtual Ubuntu 22.04 para desplegar el escenario. Se proporcionan instrucciones para una instalación local en VirtualBox a partir de una imagen ISO, y para la creación de un Ubuntu Desktop a través de Google Cloud. Luego se debe escoger que modo de ejecución se desea, local o en contenedores con Docker Compose.
+>__Note__ You must choose one of two options for creating an Ubuntu 22.04 virtual machine to deploy the scenario. Instructions are provided for a local installation in VirtualBox from an ISO image, and for creating an Ubuntu Desktop via Google Cloud. Then you must choose which execution mode you want, local or containerized with Docker Compose..
 
-- [Crear VM Ubuntu en VirtualBox](#crearvmlocal)
-- [Crear VM Ubuntu en Google Cloud (RECOMENDADO)](#crearvm)
-- [Ejecutar el escenario local](#base)
-- [Ejecutar el escenario con Docker Compose (RECOMENDADO)](#docker)
+- [Create Ubuntu VM on VirtualBox](#crearvmlocal)
+- [Create Ubuntu VM on Google Cloud (RECOMMENDED)](#crearvmm)
+- [Run the local scenario](#base)
+- [Run the scenario with Docker Compose (RECOMMENDED)](#docker)
 
-## Crear máquina virtual Ubuntu 22.04 VirtualBox <a name="crearvmlocal"></a>
+## Create Ubuntu 22.04 VirtualBox virtual machine <a name="crearvmlocal"></a>.
 
-A continuación, se proporcionan las instrucciones para crear una máquina virtual con Ubuntu 22.04 en VirtualBox, para el despliegue del escenario localmente.
+The following provides instructions for creating a virtual machine with Ubuntu 22.04 in VirtualBox, for deploying the scenario locally.
 
-1. Descargar [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-2. Crear una nueva máquina, con las siguientes características:
+1. Download [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+2. Create a new machine, with the following features:
      - Tipo: Linux
      - Versión: Ubuntu 22.04 LTS (Jammy Jellyfish) (64 bit)
      - Memoria base (*recomendado*): > 4096 MB
      - Procesadores (*recomendado*): > 2
-     - Tamaño de disco (*recomendado*): > 25 GB
-3. Para tener acceso a Internet: Configuración -> Red -> Adaptador1 -> Adaptador puente
-4. Inicie la máquina
-5. Le solicitará una imagen ISO para hacer la instalación. Descargar [Ubuntu 22.04 Desktop Image (64-bit AMD64)](https://releases.ubuntu.com/22.04/) de la web oficial.
-6. Siga los pasos para realizar la instalación. Se recomienda escoger la instalación mínima por cuestiones de rendimiento y velocidad de la descarga.
-7. Al terminar la descarga, reinicie la máquina virtual. Presione *Enter* cuando se le solicite.
-8. Clonar este repositorio dentro de la máquina creada, y acceda al mismo:
-     ```console
+     - Disk size (*recommended*): > 25 GB
+3. To access the Internet: Configuration -> Network -> Adapter1 -> Bridge adapter
+4. Start the machine
+5. You will be prompted for an ISO image to install. Download [Ubuntu 22.04 Desktop Image (64-bit AMD64)](https://releases.ubuntu.com/22.04/) from the official website.
+6. Follow the steps to perform the installation. It is recommended to choose the minimum installation for performance and download speed.
+7. When the download is finished, restart the virtual machine. Press *Enter* when prompted.
+8. Clone this repository inside the created machine, and access it:
+     ````console
      cd
      git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
      cd PFINAL-FBID2022
      ```
 
->__Note__ Para cambiar la resolución acceda a Settings -> Displays -> Resolution
+>__Note__ To change the resolution go to Settings -> Displays -> Resolution
 
 ## Crear máquina virtual Ubuntu 22.04 Google Cloud (RECOMENDADO) <a name="crearvm"></a>
 
