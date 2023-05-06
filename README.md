@@ -253,4 +253,3 @@ sudo docker system prune -a
 
 <a href="https://www.flaticon.es/resultados?word=web" target="_blank">Flaticon</a>
 
-# -PFINAL-FBID2022
