@@ -13,195 +13,206 @@ FBID - MUIRST
 
 Laura Fernández Galindo & Patricia Ortuño Otero
 
-# Instructions
+# Instrucciones
 
->__Note__ You must choose one of two options for creating an Ubuntu 22.04 virtual machine to deploy the scenario. Instructions are provided for a local installation in VirtualBox from an ISO image, and for creating an Ubuntu Desktop via Google Cloud. Then you must choose which execution mode you want, local or containerized with Docker Compose..
+>__Note__ Debe escoger una de las dos opciones de creación de una máquina virtual Ubuntu 22.04 para desplegar el escenario. Se proporcionan instrucciones para una instalación local en VirtualBox a partir de una imagen ISO, y para la creación de un Ubuntu Desktop a través de Google Cloud. Luego se debe escoger que modo de ejecución se desea, local o en contenedores con Docker Compose.
 
-- [Create Ubuntu VM on VirtualBox](#crearvmlocal)
-- [Create Ubuntu VM on Google Cloud (RECOMMENDED)](#crearvmm)
-- [Run the local scenario](#base)
-- [Run the scenario with Docker Compose (RECOMMENDED)](#docker)
+- [Crear VM Ubuntu en VirtualBox](#crearvmlocal)
+- [Crear VM Ubuntu en Google Cloud (RECOMENDADO)](#crearvm)
+- [Ejecutar el escenario local](#base)
+- [Ejecutar el escenario con Docker Compose (RECOMENDADO)](#docker)
 
-## Create Ubuntu 22.04 VirtualBox virtual machine <a name="crearvmlocal"></a>.
+## Crear máquina virtual Ubuntu 22.04 VirtualBox <a name="crearvmlocal"></a>
 
-The following provides instructions for creating a virtual machine with Ubuntu 22.04 in VirtualBox, for deploying the scenario locally.
+A continuación, se proporcionan las instrucciones para crear una máquina virtual con Ubuntu 22.04 en VirtualBox, para el despliegue del escenario localmente.
 
-1. Download [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-2. Create a new machine, with the following features:
+1. Descargar [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+2. Crear una nueva máquina, con las siguientes características:
      - Tipo: Linux
      - Versión: Ubuntu 22.04 LTS (Jammy Jellyfish) (64 bit)
      - Memoria base (*recomendado*): > 4096 MB
      - Procesadores (*recomendado*): > 2
-     - Disk size (*recommended*): > 25 GB
-3. To access the Internet: Configuration -> Network -> Adapter1 -> Bridge adapter
-4. Start the machine
-5. You will be prompted for an ISO image to install. Download [Ubuntu 22.04 Desktop Image (64-bit AMD64)](https://releases.ubuntu.com/22.04/) from the official website.
-6. Follow the steps to perform the installation. It is recommended to choose the minimum installation for performance and download speed.
-7. When the download is finished, restart the virtual machine. Press *Enter* when prompted.
-8. Clone this repository inside the created machine, and access it:
-     ````console
+     - Tamaño de disco (*recomendado*): > 25 GB
+3. Para tener acceso a Internet: Configuración -> Red -> Adaptador1 -> Adaptador puente
+4. Inicie la máquina
+5. Le solicitará una imagen ISO para hacer la instalación. Descargar [Ubuntu 22.04 Desktop Image (64-bit AMD64)](https://releases.ubuntu.com/22.04/) de la web oficial.
+6. Siga los pasos para realizar la instalación. Se recomienda escoger la instalación mínima por cuestiones de rendimiento y velocidad de la descarga.
+7. Al terminar la descarga, reinicie la máquina virtual. Presione *Enter* cuando se le solicite.
+8. Clonar este repositorio dentro de la máquina creada, y acceda al mismo:
+     ```console
      cd
      git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
      cd PFINAL-FBID2022
      ```
 
->__Note__ To change the resolution go to Settings -> Displays -> Resolution
+>__Note__ Para cambiar la resolución acceda a Settings -> Displays -> Resolution
 
-## Create Ubuntu 22.04 Google Cloud virtual machine (RECOMMENDED) <a name="createvm"></a>.
+## Crear máquina virtual Ubuntu 22.04 Google Cloud (RECOMENDADO) <a name="crearvm"></a>
 
-1. Log in to [Google Cloud Compute](https://console.cloud.google.com/compute) with your credentials.
-2. Create a new instance:
-  - Compute Engine -> VM Instances
-  - Create instance
-    - Zone: europe-southwest1-a
-    - Boot disk:
-      - Ubuntu 22.04 LTS Minimal (x86-64 architecture)
-      - Disk size (*recommended*): > 15 GB
-    - Firewall: allow HTTP and HTTPS traffic
-3. Clone this repository inside the created machine, and access it:
-     ````console
+1. Acceder a [Google Cloud Compute](https://console.cloud.google.com/compute) con sus credenciales.
+2. Crear una nueva instancia:
+  - Compute Engine -> Instancias de VM
+  - Crear instancia
+    - Zona: europe-southwest1-a
+    - Disco de arranque:
+      - Ubuntu 22.04 LTS Minimal (Arquitectura x86-64)
+      - Tamaño de disco (*recomendado*): > 15 GB
+    - Firewall: permitir tráfico HTTP y HTTPS
+3. Clonar este repositorio dentro de la máquina creada, y acceda a él:
+     ```console
      cd
      git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git
      cd PFINAL-FBID2022
      ```
-     >__Note__ If the machine does not recognize the git command, run the following command: `sudo apt-get update && sudo apt install -y git`.
+     >__Note__ Si la máquina no reconoce el comando git, ejecute el siguiente comando: `sudo apt-get update && sudo apt install -y git`
      
-4. For the realization of this practice Ubuntu 22.04 Desktop will be used. For this purpose, an automated installation file with the necessary dependencies is provided.
+4. Para la realización de esta práctica se utilizará Ubuntu 22.04 Desktop. Para ello, se proporciona un fichero automatizado de instalación de las dependencias necesarias.
 
-     >__Note__ If you are prompted to restart a service, check both options (using the space bar). When they are checked (a [*] will appear), press Enter.
+     >__Note__ Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione   Enter.
 
-     >__Warning__ The user to be created is named `fbid`.
+     >__Warning__ El usuario que se va a crear se llama `fbid`
 
      ```console
      chmod 777 desktop.sh
      ```
-     Now we can run it:
+     Ahora podemos ejecutarlo:
      ```console
      ./desktop.sh
      ```
      
-You will be asked for the following information:
- - Keyboard Layout: (*Spanish*) 84 and 1 respectively.
-     - New password: <*your_new_password*>>.
-     - As a result of the adduser you will be prompted for a password. Enter the same password you entered previously. The rest of the fields are left empty.
+     Se le solicitarán los siguientes datos:
+     - Keyboard Layout: (*Spanish*) 84 y 1 respectivamente.
+     - New password: <*your_new_password*>
+     - Como resultado del adduser se le solicitará una contraseña. Introduzca la misma que introdujo anteriormente. El resto de campos déjelos vacios.
 
-5. To have connectivity inside this machine, let's add a new rule to the Firewall in Google Cloud:
-     - Google Cloud -> VPC Network -> Firewall
-     - Create a Firewall rule
-          - Name: ubuntu-desktop
-          - Destination tags: ubuntu-desktop
-          - Source IPv4 ranges: 0.0.0.0.0/0
-          - Specified protocols and ports: TCP - 4000 and UDP - 4000
+5. Para tener conectividad dentro de esta máquina, vamos a añadir una nueva regla al Firewall en Google Cloud:
+     - Google Cloud -> Red de VPC -> Firewall
+     - Crear una regla de Firewall
+          - Nombre: ubuntu-desktop
+          - Etiquetas de destino: ubuntu-desktop
+          - Rangos de IPv4 de origen: 0.0.0.0/0
+          - Protocolos y puertos especificados: TCP - 4000 y UDP - 4000
      
-     You will see the following message on the screen: `The firewall rule "ubuntu-desktop" was successfully created.
-6. We have to add this rule to the created instance. To do this, click on the instance name and select Edit. We have to go down to network labels and add `ubuntu-desktop`, inside Network Interfaces.
-7. To work with Ubuntu Desktop with graphical interface, instead of the terminal provided by Google Cloud, download [NoMachine](https://downloads.nomachine.com/es/). After completing the installation, you will be prompted to reboot the device.
-8. To add a new machine select Add and enter the following data:
-     - Name: fbid
-     - Host: External IP (*You can see where we have created the instance*)
-     - Port: 4000 (*The one that we had opened in the Firewall*)
-     - Protocol: NX
-9. Click on Connect on the created machine. A warning about the certificate fingerprint will appear. Click OK.
-10. Log in with the credentials you created during the desktop.sh file execution.
-11. You will see the following message `Cannot detect any running screens Do you want NoMachine to create a new one and proceed to connect to the desktop?` Click Yes.
+     Verá el siguiente mensaje por pantalla: `Se creó correctamente la regla de firewall "ubuntu-desktop".`
+6. Hay que añadir esa regla a la instancia creada. Para ello hacemos clic sobre el nombre de la instancia y seleccionamos Editar. Hay que bajar hasta etiquetas de red y añadir `ubuntu-desktop`, dentro de Interfaces de red.
+7. Para trabajar con Ubuntu Desktop con interfaz gráfica, en vez de la terminal proporcionada por Google Cloud, descargue [NoMachine](https://downloads.nomachine.com/es/). Tras completar la instalación, se le solicitará reiniciar el dispositivo.
+8. Para añadir una nueva máquina seleccionar Añadir e introducir los siguientes datos:
+     - Nombre: fbid
+     - Host: IP externa (*Se puede ver donde hemos creado la instancia*)
+     - Puerto: 4000 (*El que habíamos abierto en el Firewall*)
+     - Protocolo: NX
+9. Darle a Conectar en la máquina creada. Aparecerá una advertencia sobre la huella del certificado. Pinche OK.
+10. Inicie sesión con las credenciales que creó durante la ejecución del fichero desktop.sh.
+11. Verá el siguiente mensaje `No se puede detectar ninguna pantalla en ejecución ¿Desea que NoMachine cree una nueva y proceda a conectarse con el escritorio?` Pinche Sí.
 
-## Run the local scenario <a name="base"></a>
+## Ejecutar el escenario local <a name="base"></a>
 
-### Install dependencies 
-#### Technologies
+### Instalar las dependencias 
+#### Tecnologías
 - [Python3](https://es.wikipedia.org/wiki/Python)
-- [Pip](https://es.wikipedia.org/wiki/Pip_(package_manager))
+- [Pip](https://es.wikipedia.org/wiki/Pip_(administrador_de_paquetes))
 - [Sbt](https://en.wikipedia.org/wiki/Sbt_(software))
 - [MongoDB](https://www.mongodb.com/)
-- Spark](https://spark.apache.org/)
+- [Spark](https://spark.apache.org/)
 - [Scala](https://www.scala-lang.org/)
 - [Zookeeper](https://zookeeper.apache.org/)
 - [Kafka](https://kafka.apache.org/)
 
-#### Installation
-For the realization of this flight prediction practice, a scenario with the technologies mentioned in the previous section previously installed is required. For this purpose, an automated script is provided that will install them, with versions according to the scenario to be executed later.
+#### Instalación
+Para la realización de esta práctica de predicción de vuelos, se requiere un escenario con las tecnologías mencionadas en el apartado anterior previamente instaladas. Para ello se proporciona un script automatizado que las instalará, con versiones acordes al escenario a ejecutar posteriormente.
 
->__Note__ If you chose the Google Cloud installation, access the base directory `cd` and clone again the project inside the Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git` Access: `cd PFINAL-FBID2022`.
+>__Note__ Si escogió la instalación en Google Cloud, acceda al directorio base `cd` y clone de nuevo el proyecto dentro del Ubuntu Desktop: `git clone https://github.com/patriciaOrtuno28/PFINAL-FBID2022.git` Acceder: `cd PFINAL-FBID2022`
 
->__Note__ If you are prompted to restart a service, check both options (using the space bar). When they are checked (a [*] will appear), press Enter.
+>__Note__ Si se pide el reinicio de algún servicio, marque ambas opciones (utilizando la barra espaciadora). Cuando estén marcados (aparecerá un [*]), presione Enter.
 
-First, permissions must be given to the file to be executed:
+Primero, se debe proporcionar permisos al archivo a ejecutar:
 ```console
 chmod 777 VM.sh
 ```
-Now we can run it:
+Ahora podemos ejecutarlo:
 ```console
 ./VM.sh
 ```
-This process may take several minutes as you are installing multiple technologies.
+Este proceso puede demorarse varios minutos ya que está instalando múltiples tecnologías.
 
-When the installation is complete, you will see the following message in the console:
+Cuando haya terminado la instalación, verá el siguiente mensaje por la consola:
 ```
 All dependencies have been successfully installed. Please proceed with the execution of the flight-delay predictor scenario.
 ```
 
-### Initialize the scenario
-To initialize the flight-delay (or forward) predictor scenario, a file is provided that automates all the functions mentioned in [Big Data 2019 Practice](https://github.com/ging/practica_big_data_2019).
+### Iniciar el escenario
+Para inicializar el escenario de predicción de retrasos (o adelantos) de vuelos, se proporciona un fichero que automatiza todas las funciones mencionadas en [Práctica Big Data 2019](https://github.com/ging/practica_big_data_2019).
 
-First, permissions must be provided to the file to be executed:
-````console
+Primero, se debe proporcionar permisos al archivo a ejecutar:
+```console
 chmod 777 deploy.sh
 ```
-Now we can execute it:
-````console
+Ahora podemos ejecutarlo:
+```console
 ./deploy.sh
 ```
 
->__Warning__ A password will be requested on the screen. It is for the Airflow user.
+>__Warning__ Se solicitará una contraseña por pantalla. Es para el usuario de Airflow.
 
-Once the scenario execution is finished, a message will be displayed on the console with a URL http://localhost:5000/flights/delays/predict_kafka. Through this URL, you can access a web site where you can predict flight delays or delays in flights between an origin and destination, and for a specific date.
+Una vez finalizada la ejecución del escenario, se mostrará un mensaje por consola con una URL http://localhost:5000/flights/delays/predict_kafka. A través de la misma, se accede a una web donde poder predecir los retrasos o adelantos en los vuelos entre un origen y destino, y para una fecha concreta.
 
-To access the Apache Airflow console use the following URL: http://localhost:8080.
+Para acceder a la consola de Apache Airflow utilice la siguiente URL: http://localhost:8080.
 
-(Optional) If you want to observe the status of the database after these predictions, run the following commands:
-````console
+(Opcional) Si quiere observar el estado de la base de datos tras estas predicciones, ejecute los siguientes comandos:
+```console
 chmod 777 database.sh
 ./database.sh
 ```
 
->__Note__ To access the indicated URL, if you have chosen the VirtualBox installation method, access it through Firefox. If you have chosen Google Cloud, we have included the Google Chrome installation in VM.sh, so you will be able to locate it in the applications menu of your machine.
+>__Note__ Para acceder a la URL indicada, si ha escogido el método de instalación en VirtualBox, acceda a través de Firefox. Si por el contrario ha escogido Google Cloud, hemos incluido la instalación de Google Chrome en VM.sh, por lo que podrá localizarlo en el menú de aplicaciones de su máquina.
 
 #### Apache Airflow
 
-##### What is Apache Airflow?
-Apache Airflow is a tool used for service orchestration, allowing the creation, planning and monitoring of workflows. The main applications are: automation of data ingestion, administration tasks and periodic maintenance actions. 
+##### ¿Qué es Apache Airflow?
+Apache Airflow es una herramienta que se usa para la orquestación de servicios, permite la creación, la planificación y el seguimiento de flujos de trabajo. Las aplicaciones principales son: la automatización de la ingesta de datos, las tareas de administración y las acciones de mantenimiento periódicas. 
 
-##### What are DAGs?
-Airflow works with DAGs (Directed Acyclic Graphs), they are collections of tasks to be executed, each of these tasks are related. These relationships are one-way and acyclic, i.e., they do not allow to go backwards. Each of these tasks are collected in a node. A node is a visual representation of each of the jobs that are being executed. On the other hand, the operators are in charge of determining how each of the tasks should be executed.
+##### ¿Qué son los DAGs?
+Airflow trabaja con DAGs (Directed Acyclic Graphs), son colecciones de tareas a ejecutar, cada una de estas tareas están relacionadas. Estas relaciones son de sentido único y acíclicas, es decir, no permiten volver a hacia atrás. Cada una de estas tareas quedan recogidas en un nodo. Un nodo, es una representación visual de cada uno de los trabajos que se están ejecutando. Por otro lado, los operadores son los encargados de determinar cómo se debe ejecutar cada una de las tareas.
 
-##### Airflow architecture
-Airflow is composed of a web server that is in charge of managing the requests, i.e. it serves as an API, and a *Scheduler* that carries out the process of understanding, executing and monitoring the tasks described in the DAGs.  An important feature of the Scheduler is that it presents an executor in charge of distributing the tasks and launching the workers. It uses databases such as SQLite to store metadata, users and executions performed. We can run Airflow through programs such as Kubernetes, Sequential, Dask, etc.
+##### Arquitectura de Airflow
+Airflow esta compuesto por un servidor web que se encarga de gestionar las peticiones, es decir, que sirve de API y por un *Scheduler* que lleva a cabo el proceso de entender, ejecutar y monitorizar las tareas descritas en los DAGs.  Una característica importante del Scheduler es que presenta un ejecutor encargado de repartir las tareas y de lanzar los workers. Utiliza bases de datos como SQLite para almacenar los metadatos, los usuarios y las ejecuciones realizadas. Podemos ejecutar Airflow por medio de programas como Kubernetes, Sequential, Dask, etc.
 
 <img src="assets/images/topology_airflow.png" width="400" height="250"/>
 
-##### Why do we use Airflow in this scenario?
-We are going to deploy a DAG whose task is to train the data model to make predictions with it. It is set a PySpark task to extract the fields from the database that we are going to use to train the classifier model, and another task for the training event itself.
+##### ¿Para que utilizamos Airflow en este escenario?
+Se va a desplegar un DAG que tenga como tarea entrenar el modelo de datos para hacer predicciones con el mismo. Se le establece una tarea de PySpark para extraer los campos de la base de datos que vamos a utilizar para entrenar el modelo clasificador, y otra tarea para el propio evento de entrenar.
 
-##### What happens if the task to train the model fails? What is the periodicity of it?
-If one task fails, the rest of the tasks will be performed without any problem. This is mainly because each of the tasks are independent of each other. In this case, the task of obtaining the database fields would be executed without error.
+##### ¿Qué pasa si falla la tarea de entrenar el modelo? ¿Cuál es la periodicidad de la misma?
+Si una task falla, el resto de tareas se realizarán sin ningún tipo de problema. Esto se debe principalmente a que cada una de las tareas son independientes las unas de las otras. En este caso, la tarea de obtención de los campos de la base de datos se ejecutaría sin dar error.
 
-It does not have any periodicity. This is because its schedule field has the value of None, which means that it is not scheduled and that its use is exclusively for DAG, i.e., it is only activated externally. If it had the value of @once, the task would only be executed once; if it had the value of @hourly, the task would be executed once every hour. On the other hand, if @daily were valid, the task would be performed once a day at midnight. The same would happen for @weekly, @monthly and @yearly, in which the task would be performed once a week, once a month and once a year respectively, always at midnight.
+No tiene ningún tipo de periodicidad. Esto es debido a que en su campo schedule presenta el valor de None, lo cual significa que no está programada y que su uso es para DAG exclusivamente, es decir, que está activado solo externamente. Si presentase el valor de @once, la tarea solo se realizaría una vez; si presentase el valor de @hourly, el task se ejecutaría una vez cada hora. En cambio, si valiese @daily la tarea se realizaría una vez al día a medianoche. Lo mismo ocurriría para @weekly, @monthly y @yearly, en las cuales el  task se realizaría una vez a la semana, al mes y al año respectivamente, siempre a medianoche.
 
-#### Destroy the scenario (Optional)
-In case you wish to revert the installation process of the vue prediction scenario
+#### Destruir el escenario (Opcional)
+En caso de desearse revertir el proceso de instalación del escenario de predicción de vuelos, se proporciona un fichero adicional que ejecuta dicha acción. Se recomienda lanzar el comando antes de cerrar las terminales que se abrieron automáticamente durante la ejecución del sistema.
 
-### Install the dependencies
+Primero, se debe proporcionar permisos al archivo a ejecutar:
+```console
+chmod 777 destroy.sh
+```
+Ahora podemos ejecutarlo:
+```console
+./destroy.sh
+```
 
-First, you must provide permissions to the file to be executed:
-````console
+## Ejecutar el escenario con Docker Compose (RECOMENDADO) <a name="docker"></a>
+
+### Instalar las dependencias
+
+Primero, se debe proporcionar permisos al archivo a ejecutar:
+```console
 chmod 777 VMDocker.sh
 ```
-Now we can run it:
-````console
+Ahora podemos ejecutarlo:
+```console
 ./VMDocker.sh
 ```
 
->__Note__ It is recommended to run the scenario with the DockerHub images due to latency issues when starting up the scenario. You can access the DockerHub links where we have uploaded our images:
+>__Note__ Se recomienda ejecutar el escenario con las imágenes de DockerHub por cuestiones de latencia en la puesta en marcha del escenario. Puede acceder a los enlaces de DockerHub donde hemos subido nuestras imágenes:
 
 > [Imagen en DockerHub de Spark](https://hub.docker.com/repository/docker/patriciaortuno28/fbid_spark)
 
@@ -214,38 +225,30 @@ cd docker_compose_dockerhub
 sudo docker-compose up -d
 ```
 
-### Start scenario with images uploaded to DockerHub (RECOMMENDED)
+### Iniciar el escenario con imágenes locales
 
-````console
-cd docker_compose_dockerhub
-sudo docker-compose up -d
-```
-
-### Start the scenario with local images
-
-````console
+```console
 cd docker_compose_local
 sudo docker-compose up -d
 ```
 
-### Accessing the prediction web
+### Acceder a la web de predicciones
 
-To know the IP of the Flask container and access the web service run:
-````console
+Para conocer la IP del contenedor Flask y acceder al servicio web ejecute:
+```console
 sudo docker inspect flask
 ```
 
-With that IP access http://ipaddress:5000/flights/delays/predict_kafka.
+Con esa IP acceda a http://ipaddress:5000/flights/delays/predict_kafka.
 
-### Destroy the scenario (Optional)
+### Destruir el escenario (Opcional)
 
-Run from the Docker Compose folder used to build the scenario:
-````console
+Ejecutar desde la carpeta del Docker Compose que se haya utilizado para levantar el escenario:
+```console
 sudo docker-compose down
 sudo docker system prune -a
 ```
 
-## References
+## Referencias
 
 <a href="https://www.flaticon.es/resultados?word=web" target="_blank">Flaticon</a>
-
